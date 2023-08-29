@@ -8,11 +8,12 @@ const ProductCard = () => {
       <div className="product-card position-relative">
         <div className="wishlist-icon position-absolute">
           <Link>
-            <img src="images/wish.svg" alt="" />
+            <img src="images/wish.svg" alt="wishlist" />
           </Link>
         </div>
         <div className="product-image">
-          <img src="images/watch.jpg" alt="watch" />
+          <img src="images/watch.jpg" alt="watch" className="img-fluid"/>
+          <img src="images/watch-1.avif" alt="productimg" className="img-fluid" />
         </div>
         <div className="product-details">
           <h6 className="brand">Havels</h6>

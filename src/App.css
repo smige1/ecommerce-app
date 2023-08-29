@@ -335,3 +335,48 @@ footer .input-group-text {
   top: 5%;
   right: 12px;
 }
+
+/* SPECIAL PRODUCT */
+
+.special-product-card {
+  padding: 20px 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* SPECIAL PRODUCT END */
+
+/* FAMOUS CARD */
+.famous-card .famous-content {
+  top: 10%;
+  left: 5%;
+}
+
+.famous-card img {
+  border-radius: 10px;
+}
+
+.famous-content h5 {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+
+.famous-content h6 {
+  font-size: 20px;
+  line-height: 38px;
+  font-weight: 500;
+  color: white;
+}
+
+.famous-content p {
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: 100;
+  color: #fff;
+}
+
+/* FAMOUS CARD END */

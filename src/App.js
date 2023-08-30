@@ -8,6 +8,7 @@ import OurStore from "./pages/OurStore";
 
 import './App.css'
 import Layout from "./components/Layout";
+import Blog from "./pages/Blog";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="contact" element={<Contact />}/>
           <Route path="about" element={<About />}/>
           <Route path="store" element={<OurStore />}/>
+          <Route path="blog" element={<Blog />}/>
         </Route>
       </Routes>
     </BrowserRouter>

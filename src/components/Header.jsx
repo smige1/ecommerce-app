@@ -34,15 +34,15 @@ const Header = () => {
               </h1>
             </div>
             <div className="col-5">
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Search product here..."
                   aria-label="Search product here..."
                   aria-describedby="basic-addon2"
                 />
-                <span class="input-group-text" id="basic-addon2">
+                <span className="input-group-text" id="basic-addon2">
                   <BsSearch className="fs-6" />
                 </span>
               </div>
@@ -136,7 +136,7 @@ const Header = () => {
                     <NavLink className="text-white" to="/store">
                       Our Store
                     </NavLink>
-                    <NavLink className="text-white" to="/">
+                    <NavLink className="text-white" to="/blog">
                       Blogs
                     </NavLink>
                     <NavLink className="text-white" to="/">

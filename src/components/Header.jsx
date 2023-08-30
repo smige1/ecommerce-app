@@ -65,7 +65,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link
-                    to="/login"
+                    to="/wishlist"
                     className="align-items-center text-white gap-10 d-flex"
                   >
                     <img src="/images/wishlist.svg" alt="wishlist" />
@@ -73,7 +73,7 @@ const Header = () => {
                   </Link>
                 </div>
                 <div>
-                  <Link to="/cart" className="align-items-center text-white gap-10 d-flex">
+                  <Link to="/login" className="align-items-center text-white gap-10 d-flex">
                     <img src="images/user.svg" alt="one" />
                     <p>
                       Log in <br /> My Account

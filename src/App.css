@@ -66,7 +66,7 @@ a {
 }
 
 .button:hover {
-  background: #ddd;
+  background: var(--color-Ac);
 }
 
 /* Header */
@@ -498,3 +498,34 @@ footer .input-group-text {
   top: 17%;
 }
 /* Our STORE END */
+
+/* CONTACT PAGE */
+.contact-inner-wrapper {
+  padding: 30px 20px;
+  border-radius: 15px;
+  background-color: white;
+  gap: 15px;
+}
+.contact-inner-wrapper > div {
+  width: 48%;
+}
+
+.contact-title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 35px;
+  text-align: left;
+}
+.contact-inner-wrapper form .form-control{
+  background-color: var(--color-Ba);
+  border-radius: 10px;
+  border-color: transparent;
+}
+
+.contact-inner-wrapper ul {
+  list-style: none;
+}
+.contact-inner-wrapper a, .contact-inner-wrapper p {
+  color: var(--color-Bc);
+}
+/* CONTACT PAGE END */

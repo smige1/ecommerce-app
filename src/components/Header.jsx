@@ -53,7 +53,10 @@ const Header = () => {
               align-items-center justify-content-between"
               >
                 <div>
-                  <Link className="align-items-center text-white gap-10 d-flex">
+                  <Link
+                    to="/compare-product"
+                    className="align-items-center text-white gap-10 d-flex"
+                  >
                     <img src="/images/compare.svg" alt="compare" />
                     <p className="mb-0">
                       Compare <br /> Product
@@ -61,13 +64,16 @@ const Header = () => {
                   </Link>
                 </div>
                 <div>
-                  <Link className="align-items-center text-white gap-10 d-flex">
+                  <Link
+                    to="/login"
+                    className="align-items-center text-white gap-10 d-flex"
+                  >
                     <img src="/images/wishlist.svg" alt="wishlist" />
                     <p className="mb-0">Favourite</p>
                   </Link>
                 </div>
                 <div>
-                  <Link className="align-items-center text-white gap-10 d-flex">
+                  <Link to="/cart" className="align-items-center text-white gap-10 d-flex">
                     <img src="images/user.svg" alt="one" />
                     <p>
                       Log in <br /> My Account
@@ -103,8 +109,10 @@ const Header = () => {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img src="images/menu.svg" alt=""/>
-                      <span className="me-5 d-inline-block">Shop Categories</span>
+                      <img src="images/menu.svg" alt="" />
+                      <span className="me-5 d-inline-block">
+                        Shop Categories
+                      </span>
                     </button>
                     <ul
                       className="dropdown-menu text-white"
@@ -139,7 +147,7 @@ const Header = () => {
                     <NavLink className="text-white" to="/blog">
                       Blogs
                     </NavLink>
-                    <NavLink className="text-white" to="/">
+                    <NavLink className="text-white" to="/contact">
                       Contact
                     </NavLink>
                   </div>

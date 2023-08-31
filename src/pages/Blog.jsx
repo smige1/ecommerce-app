@@ -16,10 +16,13 @@ const Blog = () => {
                 <h3 className="filter-title">Shop By Categories</h3>
                 <div>
                   <ul className="ps-0">
-                    <li>Home</li>
-                    <li>Our Store</li>
-                    <li>Blogs</li>
-                    <li>Contact</li>
+                    <li><a href="/">Home</a></li>
+                    <li>
+                    <a href="./store">Our Store</a>
+                      
+                      </li>
+                    <li><a href="./blog">Blogs</a></li>
+                    <li><a href="./contact">Contact</a></li>
                   </ul>
                 </div>
               </div>

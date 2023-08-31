@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 const SingleProduct = () => {
     const props = { width: 600, height: 600, zoomWidth: 600, img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg" };
-    const [orderedProduct, setorderedProduct] = useState(true);
+    const [orderedProduct, setOrderedProduct] = useState(true);
     const copyToClipboard = (text, e) => {
         e.preventDefault()
         console.log('text', text)
@@ -118,7 +118,8 @@ const SingleProduct = () => {
                                         </div>
                                     </div>
                                     <div className='d-flex gap-10 align-items-center my-2'>
-                                        <h3 className='product-heading'></h3>
+                                        <h3 className='product-heading'>Similique sunt in culpa qui officia deserunt mollitia
+                        animi, id est laborum et dolorum fuga.</h3>
                                     </div>
                                     <div className="accordion accordion-flush" id="accordionFlushExample">
                                         <div className="accordion-item">
@@ -168,10 +169,16 @@ const SingleProduct = () => {
                             <h4>Description</h4>
                             <div className='bg-white p-4'>
                                 <p>
-                                    Lorem sdfsdfkjsdfghsfbsdmcbsdfjhgsbjsdfbsd
-                                    4fsdbsjdfbsjdfbsjdfhsdfhjsdbfhbsd
-                                    adbhjbhsbfsfbsdhfbsdhbfdsbhfbdsbfhjdsf
-                                    sfsbfhjsbhjsbdfhjbhjb
+                                At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                  blanditiis praesentium voluptatum deleniti atque corrupti quos
+                  dolores et quas molestias excepturi sint occaecati cupiditate
+                  non provident, similique sunt in culpa qui officia deserunt
+                  mollitia animi, id est laborum et dolorum fuga.At vero eos et
+                  accusamus et iusto odio dignissimos ducimus qui blanditiis
+                  praesentium voluptatum deleniti atque corrupti quos dolores et
+                  quas molestias excepturi sint occaecati cupiditate non
+                  provident, similique sunt in culpa qui officia deserunt
+                  mollitia animi, id est laborum et dolorum fuga.
                                 </p>
                             </div>
                         </div>
@@ -200,7 +207,7 @@ const SingleProduct = () => {
                                     {
                                         orderedProduct && (
                                             <div>
-                                                <a className='text-dark text-decoration-underline' href=''>Write a Review</a>
+                                                <a className='text-dark text-decoration-underline' href='/'>Write a Review</a>
                                             </div>
                                         )
                                     }
@@ -240,12 +247,13 @@ const SingleProduct = () => {
                                             />
                                         </div>
                                         <p className='mt-3'>
-                                            dsmfsfmhjegjhfbn oirrhj eiuoretrh ertuehrkj
-                                            hehrejhththtbbhuhjqeoiemfi iriijjtj iuouroi
-                                            rkoirjn jjkjrewoiuen kokrejrjrejb reijrjer
-                                            dsmfsfmhjegjhfbn oirrhj eiuoretrh ertuehrkj
-                                            hehrejhththtbbhuhjqeoiemfi iriijjtj iuouroi
-                                            rkoirjn jjkjrewoiuen kokrejrjrejb reijrjer
+                                        On the other hand, we denounce with righteous indignation
+                      and dislike men who are so beguiled and demoralized by the
+                      charms of pleasure of the moment, so blinded by desire,
+                      that they cannot foresee the pain and trouble that are
+                      bound to ensue; and equal blame belongs to those who fail
+                      in their duty through weakness of will, which is the same
+                      as saying through shrinking from toil and pain.
                                         </p>
                                     </div>
                                 </div>

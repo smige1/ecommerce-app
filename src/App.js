@@ -44,10 +44,10 @@ function App() {
             <Route path='/forget-password' element={<ForgetPassword />} />
             <Route path='/reset-password' element={<ResetPassword />} />
             <Route path='/signup' element={<SignUp />} />
-            <Route path='/privacyPolicy' element={<PrivacyPolicy />} />
-            <Route path='/refundPolicy' element={<RefundPolicy />} />
-            <Route path='/shippingPolicy' element={<ShippingPolicy />} />
-            <Route path='/Term-condtion' element={<TermAndCondition />} />
+            <Route path='/privacy-Policy' element={<PrivacyPolicy />} />
+            <Route path='/refund-Policy' element={<RefundPolicy />} />
+            <Route path='/shipping-Policy' element={<ShippingPolicy />} />
+            <Route path='/term-conditions' element={<TermAndCondition />} />
           </Route>
         </Routes>
       </BrowserRouter>

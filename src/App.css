@@ -538,7 +538,7 @@ footer .input-group-text {
   border-radius: 10px;
 }
 
-.compare-product-card .cross {
+.compare-product-card .cross, .wishlist-card .cross{
   top: 15px;
   right: 15px;
   width: 25px;
@@ -546,14 +546,14 @@ footer .input-group-text {
   cursor: pointer;
 }
 
-.compare-product-details h5.title {
+.compare-product-details h5.title, .wishlist-card {
   font-size: 15px;
   line-height: 22px;
   font-weight: 500;
   color: var(--color-Bd);
 }
 
-.compare-product-card h6.price {
+.compare-product-card h6.price, .wishlist-card {
   font-size: 15px;
   line-height: 22px;
   font-weight: 400;
@@ -567,3 +567,40 @@ footer .input-group-text {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 /* COMPARE PRODUCT PAGE END */
+
+/* LOGIN-CARD */
+.login-card {
+  padding: 20px;
+  background-color: white;
+  width: 500px;
+  margin: 30px auto;
+  border-radius: 10px;
+}
+
+.login-card h3 {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--color-Bc);
+}
+.login-card .form-control {
+  height: 50px;
+  background-color: var(--color-Ba);
+  color: var(--color-Aa);
+  font-size: 14px;
+  border-radius: 10px;
+  border-color: transparent;
+}
+.login-card .signup {
+  background-color: var(--color-Ac);
+  color: var(--color-Aa);
+}
+.login-card .signup:hover {
+  background-color: var(--color-Aa);
+  color: white;
+}
+
+.login-card p{
+  font-size: 13px;
+  color: var(--color-Bc);
+}
+/* LOGIN CARD END */

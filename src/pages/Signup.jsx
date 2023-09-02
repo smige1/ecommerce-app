@@ -1,9 +1,38 @@
 import React from "react";
 import Meta from "../components/Meta";
 import BreadCrumb from "../components/BreadCrumb";
-import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as yup from 'yup';
+import CustomInput from "../components/CustomInput";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../features/user/userSlice";
 
-const Login = () => {
+const signUpSchema = yup.object({
+  firstname: yup.string().required("First Name is Required"),
+  lastname: yup.string().required("Last Name is Required").nullable(),
+  email: yup.string().nullable().email("Password No is Required"),
+  mobile: yup.string().required("Mobile No is Required"),
+  address: yup.string().required("Address No is Required"),
+  password: yup.string().required("Password No is Required"),
+});
+
+const Signup = () => {
+  const dispatch = useDispatch()
+  const formik = useFormik({
+    initialValues: {
+      firstname: "",
+      lastname: "",
+      email: "",
+      mobile: "",
+      address: "",
+      password: "",
+    },
+    validationSchema: signUpSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+      dispatch(registerUser(values));
+    },
+  });
   return (
     <>
       <Meta title={"Sign Up"} />
@@ -14,59 +43,85 @@ const Login = () => {
             <div className="col-12">
               <div className="login-card">
                 <h3 className="text-center mb-3">Sign Up</h3>
-                <form action="" className="d-flex flex-column gap-30">
-                  <div>
-                    <input
+                <form
+                  onSubmit={formik.handleReset}
+                  action=""
+                  className="d-flex flex-column gap-30"
+                >
+                  <CustomInput
                       type="Firstname"
                       name="Firstname"
                       placeholder="First Name"
-                      className="form-control"
+                      Value={formik.values.firstname}
+                      onChange={formik.handleChange("firstname")}
+                      onBlur={formik.handleBlur("firstname")}
                     />
-                  </div>
-                  <div>
-                    <input
+                    <div className="error">
+                      {formik.touched.firstname && formik.errors.firstname}
+                    </div>
+                  <CustomInput
                       type="lastname"
                       name="lastname"
                       placeholder="Last Name"
                       className="form-control"
+                      Value={formik.values.lastname}
+                      onChange={formik.handleChange("lastname")}
+                      onBlur={formik.handleBlur("lastname")}
                     />
-                  </div>
-                  <div>
-                    <input
+                    <div className="error">
+                      {formik.touched.lastname && formik.errors.lastname}
+                    </div>
+                  <CustomInput
                       type="email"
                       name="email"
                       placeholder="Email"
                       className="form-control"
+                      Value={formik.values.email}
+                      onChange={formik.handleChange("email")}
+                      onBlur={formik.handleBlur("femail")}
                     />
-                  </div>
-                  <div>
-                    <input
+                    <div className="error">
+                      {formik.touched.email && formik.errors.email}
+                    </div>
+                  <CustomInput
                       type="tel"
                       name="tel"
                       placeholder="Mobile Number"
                       className="form-control"
+                      Value={formik.values.mobile}
+                      onChange={formik.handleChange("mobile")}
+                      onBlur={formik.handleBlur("mobile")}
                     />
-                  </div>
-                  <div>
-                    <input
+                    <div className="error">
+                      {formik.touched.mobile && formik.errors.mobile}
+                    </div>
+                  <CustomInput
                       type="address"
                       name="address"
                       placeholder="Home Address"
                       className="form-control"
+                      Value={formik.values.address}
+                      onChange={formik.handleChange("address")}
+                      onBlur={formik.handleBlur("address")}
                     />
-                  </div>
-                  <div>
-                    <input
+                    <div className="error">
+                      {formik.touched.address && formik.errors.address}
+                    </div>
+                  <CustomInput
                       type="password"
                       name="password"
                       placeholder="password"
                       className="form-control"
+                      Value={formik.values.password}
+                      onChange={formik.handleChange("password")}
+                      onBlur={formik.handleBlur("password")}
                     />
-                  </div>
+                    <div className="error">
+                      {formik.touched.password && formik.errors.password}
+                    </div>
                   <div>
-
-                    <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
-                        <button className="button border-0">Sign Up</button>
+                    <div className="mt-3 d-flex justify-content-center gap-10 align-items-center">
+                      <button className="button border-0">Sign Up</button>
                     </div>
                   </div>
                 </form>
@@ -79,4 +134,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

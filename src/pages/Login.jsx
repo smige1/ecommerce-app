@@ -36,7 +36,7 @@ const Login = () => {
 
                     <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
                         <button className="button border-0">Login</button>
-                        <Link className="button signup">SignUp</Link>
+                        <Link to="/signup" className="button signup">SignUp</Link>
                     </div>
                   </div>
                 </form>

@@ -36,7 +36,7 @@ const SpecialProduct = () => {
             <div className="prod-count">
               <p>Products: 5</p>
               <div>
-                <div class="progress mb-3">
+                <div className="progress mb-3">
                   <div
                     className="progress-bar"
                     role="progressbar"

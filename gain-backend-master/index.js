@@ -19,14 +19,15 @@ const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const cors = require("cors");
 
+
 dbConnect();
 app.use(morgan("dev"));
-app.use(cors());
+app.use(cors({origin: "*", methods: ["GET", "POST", "PUT", "DELETE"]}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/api/user", authRouter);
-app.use("/api/product", productRouter);
+app.use("/api/product", cors(), productRouter);
 app.use("/api/blog", blogRouter);
 app.use("/api/category", categoryRouter);
 app.use("/api/blogcategory", blogcategoryRouter);

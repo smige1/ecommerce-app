@@ -21,7 +21,7 @@ export const getABrand = createAsyncThunk(
     }
   }
 );
-export const createBrand = createAsyncThunk(
+export const createBrands = createAsyncThunk(
   "brand/create-brand",
   async (brandData, thunkAPI) => {
     try {
@@ -83,16 +83,16 @@ export const brandSlice = createSlice({
         state.isSuccess = false;
         state.message = action.error;
       })
-      .addCase(createBrand.pending, (state) => {
+      .addCase(createBrands.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(createBrand.fulfilled, (state, action) => {
+      .addCase(createBrands.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
         state.createdBrand = action.payload;
       })
-      .addCase(createBrand.rejected, (state, action) => {
+      .addCase(createBrands.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;

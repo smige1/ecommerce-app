@@ -10,10 +10,9 @@ import { registerUser } from "../features/user/userSlice";
 const signUpSchema = yup.object({
   firstname: yup.string().required("First Name is Required"),
   lastname: yup.string().required("Last Name is Required").nullable(),
-  email: yup.string().nullable().email("Password No is Required"),
+  email: yup.string().nullable().email("Email is Required"),
   mobile: yup.string().required("Mobile No is Required"),
-  address: yup.string().required("Address No is Required"),
-  password: yup.string().required("Password No is Required"),
+  password: yup.string().required("Password is Required"),
 });
 
 const Signup = () => {
@@ -24,12 +23,10 @@ const Signup = () => {
       lastname: "",
       email: "",
       mobile: "",
-      address: "",
       password: "",
     },
     validationSchema: signUpSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
       dispatch(registerUser(values));
     },
   });
@@ -44,9 +41,9 @@ const Signup = () => {
               <div className="login-card">
                 <h3 className="text-center mb-3">Sign Up</h3>
                 <form
-                  onSubmit={formik.handleReset}
+                  onSubmit={formik.handleSubmit}
                   action=""
-                  className="d-flex flex-column gap-30"
+                  className="d-flex flex-column gap-15"
                 >
                   <CustomInput
                       type="Firstname"
@@ -94,18 +91,6 @@ const Signup = () => {
                     />
                     <div className="error">
                       {formik.touched.mobile && formik.errors.mobile}
-                    </div>
-                  <CustomInput
-                      type="address"
-                      name="address"
-                      placeholder="Home Address"
-                      className="form-control"
-                      Value={formik.values.address}
-                      onChange={formik.handleChange("address")}
-                      onBlur={formik.handleBlur("address")}
-                    />
-                    <div className="error">
-                      {formik.touched.address && formik.errors.address}
                     </div>
                   <CustomInput
                       type="password"

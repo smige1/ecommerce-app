@@ -8,8 +8,10 @@ const getBrands = async () => {
 };
 
 const createBrand = async (brand) => {
-  const response = await axios.post(`${base_url}brand/`, brand, config);
-
+  const response = await axios.post(`${base_url}brand/`, brand);
+  if (response.data) {
+    localStorage.setItem("brand", JSON.stringify(response.data));
+  }
   return response.data;
 };
 const updateBrand = async (brand) => {

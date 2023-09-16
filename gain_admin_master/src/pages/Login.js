@@ -56,9 +56,9 @@ const Login = () => {
             label="Email Address"
             id="email"
             name="email"
-            onChng={formik.handleChange("email")}
-            onBlr={formik.handleBlur("email")}
-            val={formik.values.email}
+            onChange={formik.handleChange("email")}
+            onBlur={formik.handleBlur("email")}
+            value={formik.values.email}
           />
           <div className="error mt-2">
             {formik.touched.email && formik.errors.email}
@@ -68,9 +68,9 @@ const Login = () => {
             label="Password"
             id="pass"
             name="password"
-            onChng={formik.handleChange("password")}
-            onBlr={formik.handleBlur("password")}
-            val={formik.values.password}
+            onChange={formik.handleChange("password")}
+            onBlur={formik.handleBlur("password")}
+            value={formik.values.password}
           />
           <div className="error mt-2">
             {formik.touched.password && formik.errors.password}

@@ -77,9 +77,9 @@ const Addcolor = () => {
           <CustomInput
             type="color"
             label="Enter Product Color"
-            onChng={formik.handleChange("title")}
-            onBlr={formik.handleBlur("title")}
-            val={formik.values.title}
+            onChange={formik.handleChange("title")}
+            onBlur={formik.handleBlur("title")}
+            value={formik.values.title}
             id="color"
           />
           <div className="error">

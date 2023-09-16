@@ -77,9 +77,9 @@ const Addcat = () => {
           <CustomInput
             type="text"
             label="Enter Product Category"
-            onChng={formik.handleChange("title")}
-            onBlr={formik.handleBlur("title")}
-            val={formik.values.title}
+            onChange={formik.handleChange("title")}
+            onBlur={formik.handleBlur("title")}
+            value={formik.values.title}
             id="brand"
           />
           <div className="error">

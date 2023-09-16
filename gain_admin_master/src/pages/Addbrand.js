@@ -35,7 +35,7 @@ const Addbrand = () => {
     } else {
       dispatch(resetState());
     }
-  }, [getBrandId]);
+  }, [dispatch, getBrandId]);
 
   useEffect(() => {
     if (isSuccess && createdBrand) {
@@ -49,7 +49,7 @@ const Addbrand = () => {
     if (isError) {
       toast.error("Something Went Wrong!");
     }
-  }, [isSuccess, isError, isLoading]);
+  }, [isSuccess, isError, isLoading, createdBrand, updatedBrand, navigate]);
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -81,9 +81,9 @@ const Addbrand = () => {
           <CustomInput
             type="text"
             name="title"
-            onChng={formik.handleChange("title")}
-            onBlr={formik.handleBlur("title")}
-            val={formik.values.title}
+            onChange={formik.handleChange("title")}
+            onBlur={formik.handleBlur("title")}
+            value={formik.values.title}
             label="Enter Brand"
             id="brand"
           />

@@ -93,9 +93,9 @@ const AddCoupon = () => {
           <CustomInput
             type="text"
             name="name"
-            onChng={formik.handleChange("name")}
-            onBlr={formik.handleBlur("name")}
-            val={formik.values.name}
+            onChange={formik.handleChange("name")}
+            onBlur={formik.handleBlur("name")}
+            value={formik.values.name}
             label="Enter Coupon Name"
             id="name"
           />

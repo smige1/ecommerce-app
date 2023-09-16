@@ -38,7 +38,7 @@ const Addproduct = () => {
     dispatch(getBrands());
     dispatch(getCategories());
     dispatch(getColors());
-  }, []);
+  }, [dispatch, navigate]);
 
   const brandState = useSelector((state) => state.brand.brands);
   const catState = useSelector((state) => state.pCategory.pCategories);
@@ -53,7 +53,7 @@ const Addproduct = () => {
     if (isError) {
       toast.error("Something Went Wrong!");
     }
-  }, [isSuccess, isError, isLoading]);
+  }, [isSuccess, isError, isLoading, createdProduct]);
   const coloropt = [];
   colorState.forEach((i) => {
     coloropt.push({
@@ -111,9 +111,9 @@ const Addproduct = () => {
             type="text"
             label="Enter Product Title"
             name="title"
-            onChng={formik.handleChange("title")}
-            onBlr={formik.handleBlur("title")}
-            val={formik.values.title}
+            onChange={formik.handleChange("title")}
+            onBlur={formik.handleBlur("title")}
+            value={formik.values.title}
           />
           <div className="error">
             {formik.touched.title && formik.errors.title}
@@ -133,9 +133,9 @@ const Addproduct = () => {
             type="number"
             label="Enter Product Price"
             name="price"
-            onChng={formik.handleChange("price")}
-            onBlr={formik.handleBlur("price")}
-            val={formik.values.price}
+            onChange={formik.handleChange("price")}
+            onBlur={formik.handleBlur("price")}
+            value={formik.values.price}
           />
           <div className="error">
             {formik.touched.price && formik.errors.price}
@@ -215,8 +215,8 @@ const Addproduct = () => {
             type="number"
             label="Enter Product Quantity"
             name="quantity"
-            onChng={formik.handleChange("quantity")}
-            onBlr={formik.handleBlur("quantity")}
+            onChange={formik.handleChange("quantity")}
+            onBlur={formik.handleBlur("quantity")}
             val={formik.values.quantity}
           />
           <div className="error">

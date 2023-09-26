@@ -22,12 +22,12 @@ export const getABrand = createAsyncThunk(
   }
 );
 export const createBrand = createAsyncThunk(
-  "brand/create-brand",
+  "/brand/create-brand",
   async (brandData, thunkAPI) => {
     try {
       return await brandService.createBrand(brandData);
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue("Brand NOT Created");
     }
   }
 );

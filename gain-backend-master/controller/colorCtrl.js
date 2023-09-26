@@ -7,7 +7,7 @@ const createColor = asyncHandler(async (req, res) => {
     const newColor = await Color.create(req.body);
     res.json(newColor);
   } catch (error) {
-    throw new Error(error);
+    throw new Error("Color NOT created");
   }
 });
 const updateColor = asyncHandler(async (req, res) => {

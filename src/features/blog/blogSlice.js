@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {toast} from "react-toastify";
-import { productService } from "./productService";
+import { blogService } from "./blogService";
 const getUserfromLocalStorage = localStorage.getItem("product")
   ? JSON.parse(localStorage.getItem("user"))
   : null;
-const productState = {
-    product: getUserfromLocalStorage,
+const blogState = {
+    blog: getUserfromLocalStorage,
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -13,11 +13,11 @@ const productState = {
 }
 
 
-export const getAllProducts = createAsyncThunk(
-    'product/get',
+export const getAllBlogs = createAsyncThunk(
+    'blogs/get',
     async( thunkAPI) => {
         try{
-            return await productService.getProducts()
+            return await blogService.getBlogs()
         }catch(error){
             const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
              return thunkAPI.rejectWithValue(message)
@@ -25,11 +25,11 @@ export const getAllProducts = createAsyncThunk(
     }
 )
 
-export const addToWishlist = createAsyncThunk(
-    'product/wishlist',
-    async(prodId, thunkAPI) => {
+export const getABlog = createAsyncThunk(
+    'blog/get',
+    async(id, thunkAPI) => {
         try{
-            return await productService.addToWishlist(prodId)
+            return await blogService.getBlog(id)
         }catch(error){
             const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
              return thunkAPI.rejectWithValue(message)
@@ -37,26 +37,25 @@ export const addToWishlist = createAsyncThunk(
     }
 )
 
-
-export const productSlice = createSlice({
-    name:'product',
-    initialState: productState,
+export const blogSlice = createSlice({
+    name:'blog',
+    initialState: blogState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase( getAllProducts.pending,  (state)=> {
+        builder.addCase( getAllBlogs.pending,  (state)=> {
             state.isLoading =  true;
         })
-        .addCase(getAllProducts.fulfilled, (state, action )=> {
+        .addCase(getAllBlogs.fulfilled, (state, action )=> {
             state.isError =false;
             state.isSuccess = true;
             state.isLoading =  false;
             state.message =  action.error;
-            state.product = action.payload;
+            state.blog = action.payload;
             if (state.isSuccess === true) {
-                toast.info("Product created successfully");
+                toast.info("Blog created successfully");
             }
         })
-        .addCase(getAllProducts.rejected, (state, action )=> {
+        .addCase(getAllBlogs.rejected, (state, action )=> {
             state.isError =true;
             state.isSuccess = false;
             state.isLoading =  false;
@@ -65,30 +64,31 @@ export const productSlice = createSlice({
                 toast.error(action.error)
             }
         })
-        .addCase(addToWishlist.pending,  (state)=> {
+        .addCase( getABlog.pending,  (state)=> {
             state.isLoading =  true;
         })
-        .addCase(addToWishlist.fulfilled, (state, action )=> {
+        .addCase(getABlog.fulfilled, (state, action )=> {
             state.isError =false;
             state.isSuccess = true;
             state.isLoading =  false;
             state.message =  action.error;
-            state.wishlist = action.payload;
+            state.singleBlog = action.payload;
             if (state.isSuccess === true) {
-                toast.info("Added to wishlist successful");
+                toast.info("Blog created successfully");
             }
         })
-        .addCase(addToWishlist.rejected, (state, action )=> {
+        .addCase(getABlog.rejected, (state, action )=> {
             state.isError =true;
             state.isSuccess = false;
             state.isLoading =  false;
-            state.message = action.error;
+            state.message = action.payload;
             if (state.isError === true) {
                 toast.error(action.error)
             }
-        })
+        });
     }
+    
 })
 
-export const { reset } = productSlice.actions
-export default productSlice.reducer;
+export const { reset } = blogSlice.actions
+export default blogSlice.reducer;

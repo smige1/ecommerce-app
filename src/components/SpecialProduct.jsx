@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReactStars from "react-stars";
 
-const SpecialProduct = () => {
+const SpecialProduct = (props) => {
+  const {title, brand, totalrating, price, sold, quantity} = props
   return (
     <div className="col-4">
       <div className="special-product-card">
@@ -11,17 +12,17 @@ const SpecialProduct = () => {
             <img src="images/watch.jpg" className="img-fluid" alt="watch" />
           </div>
           <div className="special-product-content">
-            <h6 className="brand">Havels</h6>
-            <h5 className="product-title">Lorem ipsum dolor sit.</h5>
+            <h6 className="brand">{brand}</h6>
+            <h5 className="product-title">{title}</h5>
             <ReactStars
               count={5}
               edit={false}
-              value={3}
+              value={totalrating}
               size={24}
               color2={"#ffd700"}
             />
             <p className="price">
-              <span>$100</span> &nbsp; <strike>$200</strike>
+              <span className="red-p">${price}</span> &nbsp;{" "} <strike>$200</strike>
             </p>
             <div className="discount-till d-flex align-items-center gap-10">
               <p className="mb-0">
@@ -34,16 +35,16 @@ const SpecialProduct = () => {
               </div>
             </div>
             <div className="prod-count">
-              <p>Products: 5</p>
+              <p>Products:{quantity}</p>
               <div>
                 <div className="progress mb-3">
                   <div
                     className="progress-bar"
                     role="progressbar"
-                    style={{width: "25%"}}
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
+                    style={{width: quantity / quantity + sold * 100 + "%"}}
+                    aria-valuenow={quantity / quantity + sold * 100}
+                    aria-valuemin={quantity}
+                    aria-valuemax={sold + quantity}
                   ></div>
                 </div>
                 <Link className="button">Add to Cart</Link>

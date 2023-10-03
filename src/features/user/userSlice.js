@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {authService} from "./authService";
 import {toast} from "react-toastify";
-const getUserfromLocalStorage = localStorage.getItem("user")
-  ? JSON.parse(localStorage.getItem("user"))
+const getCustomerfromLocalStorage = localStorage.getItem("Customer")
+  ? JSON.parse(localStorage.getItem("Customer"))
   : null;
 const initialState = {
-    user: getUserfromLocalStorage,
+    user: getCustomerfromLocalStorage,
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -23,6 +23,8 @@ export const registerUser = createAsyncThunk(
         }
     }
 )
+
+
 
 export const editUserAccount = createAsyncThunk(
     'auth/edit',
@@ -47,6 +49,18 @@ export const loginUser = createAsyncThunk(
         }
     }
 )
+export const getUserWishlist = createAsyncThunk(
+    "user/wishlist",
+    async(_, thunkAPI) => {
+        try {
+            return authService.getUserWishlist();
+        } catch(error){
+            const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString() 
+            return thunkAPI.rejectWithValue(message)
+        }
+    }
+)
+
 export const logoutUser = createAsyncThunk(
     'auth/logout',
     async(userData, thunkAPI) => {
@@ -144,24 +158,24 @@ export const authSlice = createSlice({
                 toast.info("User created successfully");
             }
         })
-        .addCase( getCurrentUser.pending,  (state)=> {
+        .addCase( getUserWishlist.pending,  (state)=> {
             state.isLoading =  true;
         })
-        .addCase(getCurrentUser.fulfilled, (state, action )=> {
+        .addCase(getUserWishlist.fulfilled, (state, action )=> {
             state.isError =false;
             state.isSuccess = true;
             state.isLoading =  false;
             state.message =  action.error;
-            state.user = action.payload;
+            state.wishlist = action.payload;
             if (state.isSuccess === true) {
-                toast.info("user created successfully");
+                toast.info("wishlist added successfully");
             }
         })
-        .addCase(getCurrentUser.rejected, (state, action )=> {
+        .addCase(getUserWishlist.rejected, (state, action )=> {
             state.isError =true;
             state.isSuccess = false;
             state.isLoading =  false;
-            state.message = action.payload;
+            state.message = action.error;
             if (state.isError === true) {
                 toast.error(action.error)
             }
